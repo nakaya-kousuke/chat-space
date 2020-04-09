@@ -16,14 +16,14 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|
+|name|string|null :fales, index :ture|
 |mail|string|
 |password|string|
 
 ### Association
 - has_many :messages
-- has_many :groups
 - has_many :groups, through: :groups_users 
+- has_many :groups_users
 
 ## groupsテーブル
 
@@ -32,9 +32,9 @@
 |name|string|null: false|
 
 ### Association
-- belongs_to :user
 - has_many :messages
-- belongs_to :user, through: :groups_users
+- has_many :user, through: :groups_users
+- has_many :groups_users
 
 ## messagesテーブル
 
@@ -42,8 +42,9 @@
 |------|----|-------|
 |text|text|
 |image|string|
+|user_id|string|
+|group_id|string|
 
 ### Association
 - belongs_to :user
-- belongs_to :groups
-- belongs_to :groups_users
+- belongs_to :group
