@@ -4,8 +4,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
+|group|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :group
@@ -16,23 +16,34 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|id|int(10)|null: false,|
-|name|varchar(100)|
-|mail|varchar(100)|
-|password|varchar(8)|
+|name|string|
+|mail|string|
+|password|string|
 
+### Association
+- has_many :messages
+- has_many :groups
+- has_many :groups, through: :groups_users 
 
 ## groupsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|id|int(10)|null: false,|
-|groupname|varchar(100)|
-|chatmember|users_id|
+|name|string|null: false|
+
+### Association
+- belongs_to :user
+- has_many :messages
+- belongs_to :user, through: :groups_users
 
 ## messagesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|text|varchar(1000)|
+|text|text|
 |image|string|
+
+### Association
+- belongs_to :user
+- belongs_to :groups
+- belongs_to :groups_users
