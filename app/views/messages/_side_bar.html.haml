@@ -2,7 +2,7 @@
   .side-bar__user-name
     .top-items
       .top-items__name
-        =current_user.name
+        = current_user.name
       .top-items__icons
         = link_to new_group_path, class:"icon-name-left" do
           = icon('far', 'edit')
@@ -12,8 +12,8 @@
   .side-bar__group-list
     - current_user.groups.each do |group|
       .group
-        = link_to '#' do
+        = link_to group_messages_path(group) do
           .group-name
-            =group.name
+            = group.name
           .new-message
-            まだメッセージがありません。
+            = group.show_last_message
