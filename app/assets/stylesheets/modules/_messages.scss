@@ -103,28 +103,30 @@
   }
 
 
-  &__message-list {
+  &__messages {
     height: calc(100vh - 100px - 90px);
     background-color: #fafafa;
     overflow: scroll;
     padding: 46px 40px;
-    &__info{
-      display: flex;
-      margin-bottom: 12px;
-    }
-    &__info__user-name {
-      font-size: 16px;
-      color: #333333;
-    }
-    &__info__data {
-      font-size: 12px;
-      color: #999999;
-      margin-left: 10px;
-    }
-    &__text {
-      font-size: 14px;
-      color: #434a54;
-      padding-bottom: 46px;
+    &__message {
+      &__info{
+        display: flex;
+        margin-bottom: 12px;
+      }
+      &__info__user-name {
+        font-size: 16px;
+        color: #333333;
+      }
+      &__info__data {
+        font-size: 12px;
+        color: #999999;
+        margin-left: 10px;
+      }
+      &__text {
+        font-size: 14px;
+        color: #434a54;
+        padding-bottom: 46px;
+      }
     }
   }
 
